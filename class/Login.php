@@ -27,4 +27,16 @@ class Login extends Database
             echo "GAGAL LOGIN";
         }
     }
+
+    public function lastlog($id){
+        $join_date = date("Y-m-d H:i:s");
+
+        $sql = "UPDATE user SET terakhir_login='$join_date' WHERE id='$id'";
+
+        if ($this->db->query($sql) == TRUE) {
+            echo "Berhasil";
+        } else {
+            echo "Gagal";
+        }
+    }
 }

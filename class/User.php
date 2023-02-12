@@ -73,6 +73,26 @@ class User extends Database
         }
     }
 
+    public function createRegis($data)
+    {
+        $nis = $data["nis"];
+        $fullname = $data["fullname"];
+        $username = $data["username"];
+        $password = $data["password"];
+        $role = "user";
+        $join_date = date("Y-m-d");
+
+        $sql = "INSERT INTO user(nis, fullname, username, password, role, join_date) values('$nis', '$fullname', ' $username', '$password', '$role', ' $join_date')";
+
+        if ($this->db->query($sql) == true) {
+            echo "Berhasil";
+        } else {
+            echo "Gagal";
+        }
+    }
+
+    
+
     public function update($id, $data)
     {
         // $kode = $data["kode"];
